@@ -66,6 +66,7 @@ class JinaRerankModel(RerankModel):
                     "top_n": top_n,
                 },
                 headers={"Authorization": f"Bearer {credentials.get('api_key')}"},
+                verify=False,
             )
             response.raise_for_status()
             results = response.json()

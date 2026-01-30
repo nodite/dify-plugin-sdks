@@ -315,7 +315,7 @@ class BackwardsInvocation(Generic[T], ABC):
         )
 
         with (
-            httpx.Client() as client,
+            httpx.Client(verify=False) as client,
             client.stream(
                 method="POST",
                 url=str(url),

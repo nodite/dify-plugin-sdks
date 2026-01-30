@@ -30,7 +30,7 @@ class File(BaseModel):
         """
         if self._blob is None:
             try:
-                response = httpx.get(self.url)
+                response = httpx.get(self.url, verify=False)
                 response.raise_for_status()
                 self._blob = response.content
             except httpx.UnsupportedProtocol as e:
